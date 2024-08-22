@@ -3,7 +3,7 @@ public class SebastianChallenge {
     public static void main(String[] args){
 
         SebastianChallenge sebastianChallenge = new SebastianChallenge();
-        System.out.println("the total is  " + sebastianChallenge.total);
+        System.out.println("the total is " + sebastianChallenge.total);
     }
     public SebastianChallenge(){
 
