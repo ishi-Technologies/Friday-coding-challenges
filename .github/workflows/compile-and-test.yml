@@ -23,10 +23,12 @@ jobs:
       - name: Compile and run Java code
         if: matrix.language == 'java'
         run: |
-          for file in challenge-01/solutions/*.java; do
-            javac $file
-            java ${file%.*}
-          done
+         echo "Compiling and running Java files..."
+         cd challenge-01/solutions/
+         for file in *.java; do
+          javac $file
+          java ${file%.*}
+         done
 
       - name: Set up for Python
         if: matrix.language == 'python'
@@ -37,6 +39,7 @@ jobs:
       - name: Run Python script
         if: matrix.language == 'python'
         run: |
+          echo "Running Python scripts..."
           for file in challenge-01/solutions/*.py; do
             python $file
           done
