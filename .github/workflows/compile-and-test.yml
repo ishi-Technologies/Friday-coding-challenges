@@ -1,0 +1,41 @@
+name: Compile and Test challenge solutions
+
+on: [push, pull_request]
+
+jobs:
+  compile-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        language: [java, python]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up for Java
+        if: matrix.language == 'java'
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+
+      - name: Compile and run Java code
+        if: matrix.language == 'java'
+        run: |
+          for file in challenge-01/solutions/*.java; do
+            javac $file
+            java ${file%.*}
+          done
+
+      - name: Set up for Python
+        if: matrix.language == 'python'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Run Python script
+        if: matrix.language == 'python'
+        run: |
+          for file in challenge-03/solutions/*.py; do
+            python $file
+          done
