@@ -1,4 +1,3 @@
-import challenge-01.solutions.SebastianChallenge
 public class SebastianChallenge {
 
     public static void main(String[] args){
