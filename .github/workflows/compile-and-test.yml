@@ -37,6 +37,6 @@ jobs:
       - name: Run Python script
         if: matrix.language == 'python'
         run: |
-          for file in challenge-03/solutions/*.py; do
+          for file in challenge-01/solutions/*.py; do
             python $file
           done
